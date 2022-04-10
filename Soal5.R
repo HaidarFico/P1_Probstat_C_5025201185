@@ -1,26 +1,18 @@
+# Soal 5a
+distribusiExponensial <- function(x, rate){
+  rate * exp(1) ^ (-rate * x)
+}
+  paste("Jawaban 5a: ", distribusiExponensial(1, 3))
+
+# Soal 5b
 set.seed(1)
-  #x <- sample(3, 100, replace=TRUE)
-  x <- rnorm(10000, 3, 0.5)
-  
-exp_dist <- function(x){
-    ans <- (exp(1) ^ (-x/3))/3
-    return (ans)
-}
+x <- rnorm(10000, 3, 0.5)
+lambda <- 3
 
-rata2 <- function(lamb){
-  return (1/lamb)
-}
+hist(distribusiExponensial(x[1:10],  lambda))
+hist(distribusiExponensial(x[1:100],  lambda))
+hist(distribusiExponensial(x[1:1000],  lambda))
+hist(distribusiExponensial(x[1:10000],  lambda))
 
-variance <- function(lamb){
-  return(1/lamb ^ 2)
-}
-
-y1 <- exp_dist(x[1:10])
-y2 <- exp_dist(x[1:100])
-y3 <- exp_dist(x[1:1000])
-y4 <- exp_dist(x[1:10000])
-
-hist(y1,breaks=10, xlim = c(0.00,0.30))
-hist(y2,breaks=10, xlim = c(0.00,0.30))
-hist(y3,breaks=10, xlim = c(0.00,0.30))
-hist(y4,breaks=10, xlim = c(0.00,0.30))
+# Soal 5c
+paste("Jawaban 5c: Rataan : ", mean(rexp(100, rate = lambda)), ", varian : ", varian = (sd(rexp(100, rate = lambda))) ^ 2)

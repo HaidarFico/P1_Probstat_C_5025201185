@@ -1,16 +1,25 @@
-dist_geometrik <- function(x, p, q) {
-  return (p * q ^ (x - 1))
-}
+p <- 0.2
+z <- 1:5
 
-rataan <- function(p) {
-  return (1/p)
+paste("Jawaban 1a:", dgeom(3, p)) 
+
+# Jawaban 1b
+paste("Jawaban 1b: ", mean(rgeom(n = 10000, prob = p) == 3)) 
+
+# Jawaban 1c Dapat dilihat dari dua jawaban tersebut, walaupun n nya sangat berbeda, hasil dari fungsi tersebut sangat mendekati. 
+
+# Jawaban 1d
+
+hist(rgeom(10000, prob = p), xlim = c(0,32))
+
+# Jawaban 1e
+
+meanIn <- function(p) {
+  (1/p)
 }
 
 varian <- function(p) {
-  return ((1-p)/p*p)
+  ((1-p)/p^2)
 }
 
-paste("1a:", dist_geometrik(3, 0.8, 0.2)) #1a
-z <- 1:5
-plot(dist_geometrik(z, 0.8, 0.2)) #1d
-paste("1e: rata-rata = ", rataan(0.2), ", varian = ", varian(0.2)) #1b
+paste("Jawaban 1e: Rataan : ", meanIn(p), ", varian : ", varian(p)) #1b

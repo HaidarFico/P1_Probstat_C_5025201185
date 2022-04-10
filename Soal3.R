@@ -1,24 +1,14 @@
-x <- 6
-e <- 2.712
-ftX <- factorial(x)
+distriBusiPoisson <- function(hari, x, bayiPerHari){
+  (exp(1) ^ (-bayiPerHari) * bayiPerHari ^ x / factorial(x) * hari)
+}
+
 rata <- 4.5
+paste("Jawaban 3a: ",distriBusiPoisson(1, 6, 4.5))
 
-dist_poisson <- function(hari){
-  return (e ^ (-rata) * rata ^ x / ftX * hari)
-}
+# Jawaban 3b
+hist(rpois(365, rata), main = "Jawaban 3b")
 
-rataan <- function(p) {
-  return (1/p)
-}
 
-varian <- function(p) {
-  return ((1-p)/p*p)
-}
+# Jawaban 3c: Dari kedua poin sebelumnya, dapat disimpulkan bahwa soal a peluang tersebut dapat digunakan untuk memprediksi soal b.
 
-dist_poisson(1) #3a
-
-n <- 1:365
-
-plot(dist_poisson(n)) #3b
-
-paste("3d: rata-rata = ", rata, ", varian = ", rata) #3d
+paste("Jawaban 3d: Rataan : ", rata, ", varian : ", rata)
